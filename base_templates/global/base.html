@@ -7,8 +7,10 @@
     <link rel="stylesheet" href="{% static 'global/css/styles.css' %}">
 </head>
 <body>
-    <h1>{% block head %}
-    	{{ head }}
-    {% endblock head %}</h1>
+    <main class="content">
+        {% block content %}
+
+        {% endblock content %}
+    </main>
 </body>
 </html>

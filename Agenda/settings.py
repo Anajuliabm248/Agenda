@@ -127,3 +127,9 @@ MEDIA_URL = 'media/' #URL PARA IMAGENS
 MEDIA_ROOT = BASE_DIR / 'media' #PASTA PARA IMAGENS
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
+try:
+    from Agenda.local_settings import *
+except ImportError:
+    print("Erro ao importar o local_settings")
