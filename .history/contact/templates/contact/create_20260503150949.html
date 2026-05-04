@@ -1,0 +1,23 @@
+{% extends "global/base.html" %}
+
+{% block content %}
+    <h2>Criar Contato</h2>
+
+    <form action="{% url 'contact:create' %}" method="POST" enctype="multipart/form-data">
+        {% csrf_token %} #proteção contra ataques CSRF (Cross-Site Request Forgery)
+        div.form-content
+            div.form-group
+                label(for="name") Nome:
+                input#name.form-control(type="text", name="name", required)
+            div.form-group
+                label(for="email") Email:
+                input#email.form-control(type="email", name="email", required)
+            div.form-group
+                label(for="phone") Telefone:
+                input#phone.form-control(type="text", name="phone")
+            div.form-group
+                label(for="photo") Foto:
+                input#photo.form-control(type="file", name="photo")
+
+        
+{% endblock content %}

@@ -11,5 +11,20 @@
             <p><b>Descrição: </b> {{ contact.description }}</p>
             <p><b>Categoria: </b> {{ contact.category.name }}</p>
         </div>
+
+        <div class="contact-links">
+            <br>
+            <a class="btn btn-link" href="{% url 'contact:update' contact.id %}" >Editar</a>
+        
+            <form
+                action="{% url 'contact:delete' contact.id %}"
+                method="POST"
+                style="display: inline;"
+                onsubmit="return confirm('Tem certeza que deseja excluir este contato?');"
+            >
+                {% csrf_token %}
+                <button type="submit" class="btn btn-link btn-delete">Excluir</button>
+            </form>
+        </div>
     </main>
 {% endblock content %}

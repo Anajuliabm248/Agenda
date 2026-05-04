@@ -1,0 +1,22 @@
+{% extends "global/base.html" %}
+
+{% block content %}
+    <h2>Criar Contato</h2>
+
+    <!-- enctype serve para indicar que o formulário pode enviar arquivos, como imagens ou documentos. -->
+    <form action="{% url 'contact:create' %}" method="POST" enctype="multipart/form-data">
+        {% csrf_token %} #proteção contra ataques CSRF (Cross-Site Request Forgery)
+        
+        <div class="form-content">
+            <div class="form-group">
+                <label for="id_first_name">Nome:</label>
+                <input type="text" id="id_first_name" name="first_name" required maxlength="255">
+            </div>
+        </div>
+        <div class="form-content">
+            <div class="form-group">
+                <button class="btn" type>Criar</button>
+            </div>
+        </div>
+        
+{% endblock content %}
